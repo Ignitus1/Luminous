@@ -15,7 +15,7 @@ def setup():
     pg.blendMode(ADD)
     pg.ellipseMode(RADIUS)    
     
-    c = random(0, 360)
+    #c = random(0, 360)
     
     for i in range(40):
         p = PVector(random(pg.width), random(pg.height))
@@ -54,6 +54,7 @@ class Mover:
         self.pos = pos
         self.offset = random(TAU)
         self.speed = random(0.05, 0.6)
+        self.c = random(0, 360)
         
     def update(self):
         if self.steps >= 200:
@@ -64,7 +65,8 @@ class Mover:
         self.steps += 1
         
     def show(self):
+        c = random(0, 360)
         th = self.offset + sin(radians(frameCount * 0.2))
         ft = 0.5 * (1 + sin(radians(frameCount * 3)))
-        pg.fill(c, 60 + 30 * sin(th), 60, 4)
+        pg.fill(self.c, 60 + 30 * sin(th), 60, 4)
         pg.circle(self.pos.x, self.pos.y, 2 + 30 * pow(float(self.steps) / 200, 2))
