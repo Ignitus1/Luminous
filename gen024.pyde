@@ -65,7 +65,6 @@ class Mover:
         self.steps += 1
         
     def show(self):
-        c = random(0, 360)
         th = self.offset + sin(radians(frameCount * 0.2))
         ft = 0.5 * (1 + sin(radians(frameCount * 3)))
         pg.fill(self.c, 60 + 30 * sin(th), 60, 4)
